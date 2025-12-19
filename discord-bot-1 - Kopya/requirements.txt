@@ -1,5 +1,0 @@
-discord.py
-aiosqlite
-Pillow
-quart
-python-dotenv
