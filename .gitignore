@@ -1,0 +1,19 @@
+# Hassas Bilgiler
+.env
+config.json (eğer token içeriyorsa)
+
+# Python Gereksiz Dosyaları
+__pycache__/
+*.py[cod]
+*$py.class
+.venv
+env/
+venv/
+
+# IDE Ayarları
+.idea/
+.vscode/
+
+# Veritabanı ve Loglar
+*.log
+*.db
