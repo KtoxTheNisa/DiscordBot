@@ -1,102 +1,78 @@
 # 🤖 Discord Bot & Web Dashboard PRO
 
-> **Advanced Programming Dersi Dönem Projesi**
+> **Advanced Programming Course Term Project**
 >
-> Bu proje, modern asenkron programlama teknikleri kullanılarak geliştirilmiş, çok sunuculu (multi-server) destekli ve web paneli olan kapsamlı bir Discord botudur.
+> This project is a comprehensive Discord bot with multi-server support and a web dashboard, developed using modern asynchronous programming techniques.
 
-## 🚀 Teknoloji Yığını (Tech Stack)
+## 🚀 Tech Stack
 
-Proje, endüstri standardı teknolojilerle ve **%100 Asenkron** mimariyle geliştirilmiştir.
+The project is built with industry-standard technologies and a **100% Asynchronous** architecture.
 
 ### Backend & Bot
-*   **Python 3.10+**: Ana geliştirme dili.
-*   **Quart Framework**: Web dashboard için Flask'ın **Asenkron (Async)** versiyonu kullanıldı. Bu sayede bot Discord'daki mesajları yanıtlarken site donmaz. (High Concurrency).
-*   **Discord.py (2.0+)**: Discord API ile iletişim için modern kütüphane.
-*   **AsyncIO**: Eşzamanlı (concurrent) işlem yönetimi için.
+* **Python 3.10+**: Core development language.
+* **Quart Framework**: An **Asynchronous (Async)** version of Flask used for the web dashboard. This ensures the bot stays responsive while the website handles high concurrency.
+* **Discord.py (2.0+)**: Modern library for interacting with the Discord API.
+* **AsyncIO**: For concurrent process management.
 
-### Veritabanı
-*   **SQLite3**: Veri saklama.
-*   **aiosqlite**: Veritabanı sorgularının botu kilitlememesi (non-blocking) için kullanılan asenkron sürücü.
+### Database
+* **SQLite3**: Data storage.
+* **Aiosqlite**: Asynchronous driver used to prevent database queries from blocking the bot (non-blocking).
 
 ### Frontend (Dashboard)
-*   **HTML5 & CSS3**: Modern, responsive tasarım.
-*   **Glassmorphism UI**: Premium hissiyatlı, bulanık arka planlı (backdrop-filter) modern arayüz tasarımı.
-*   **Jinja2**: HTML şablon motoru (Template Engine).
+* **HTML5 & CSS3**: Modern, responsive design.
+* **Glassmorphism UI**: A premium interface design with modern effects (backdrop-filter).
+* **Jinja2**: HTML Template Engine.
 
 ---
 
-## 🔥 Özellikler
+## 🔥 Key Features
 
-### 1. Web Yönetim Paneli (Dashboard)
-*   Discord ile Giriş (**OAuth2**)
-*   Sunucuya özel ayarlar (Prefix, Log Kanalı vb.)
-*   Canlı Liderlik Tabloları (XP, Mesaj, Ses)
-*   **Glassmorphism** tasarım dili.
+### 1. Economy System
+* **Global Economy**: Coin earning through daily rewards and chatting.
+* **Stock Market**: A system where stock prices change every 5 minutes with randomized algorithms.
+* **Marketplace**: Users can buy/sell items and manage their inventory.
 
-### 2. Gelişmiş Ekonomi (Global)
-*   `!buy_coin`, `!sell_coin`: Dinamik borsa sistemi.
-*   `!daily`: Günlük ödül sistemi.
-*   `!steal`: Riskli soygun mekaniği.
-*   `!market`: Rozet ve eşya satın alma.
+### 2. Management & Moderation
+* **Advanced Log System**: All actions (deleted messages, joining/leaving) are logged to specific channels.
+* **Authority Control**: Server-specific settings (auto-role, welcome messages).
 
-### 3. Seviye (Level) & İstatistik
-*   Her mesaj ve sesli sohbet XP kazandırır.
-*   Gelişmiş Profil Kartı (`!profile`).
-*   Haftalık ve Genel Sıralamalar (`!stat`, `!top_voice`).
+### 3. Statistics & Leveling
+* **Voice/Chat Levels**: Earn XP and level up based on activity.
+* **Profile Cards**: Advanced dynamic profile cards (`!profile`).
+* **Leaderboards**: Weekly and overall rankings for voice and text activity (`!stat`, `!top_voice`).
 
-### 4. Eğlence & Sosyal
-*   Evlilik Sistemi (`!marry`, `!divorce`).
-*   Rep Puanı (`!rep`).
-*   Kelime Oyunu, Düello, Yazı Tura.
+### 4. Entertainment & Social
+* **Marriage System**: Roleplay marriage features (`!marry`, `!divorce`).
+* **Reputation**: Rep points system (`!rep`).
+* **Games**: Word games, duels, coinflip, and more.
 
 ---
 
-## 🛠️ Kurulum
+## 🛠️ Setup
 
-### 1. Gereksinimler
+### 1. Requirements
 ```bash
 pip install -r requirements.txt
-```
+2. Environment Variables (.env)
+Create a .env file in the root directory:
 
-### 2. Ortam Değişkenleri (.env)
-Proje kök dizinine `.env` dosyası oluşturun:
-```env
-TOKEN=DISCORD_BOT_TOKEN
-OWNER_ID=SIZIN_ID
+Kod snippet'i
+TOKEN=YOUR_DISCORD_BOT_TOKEN
+OWNER_ID=YOUR_USER_ID
 CLIENT_SECRET=OAUTH2_SECRET
 CLIENT_ID=BOT_ID
 REDIRECT_URI=http://localhost:5000/callback
-SECRET_KEY=rastgele_guvenlik_anahtari
-```
-
-### 3. Başlatma
-```bash
+SECRET_KEY=random_security_key
+3. Launch
+Bash
 python main.py
-```
-*Bu komut hem Botu hem de Web Sitesini tek bir "Event Loop" içinde asenkron olarak başlatır.*
+This command starts both the Bot and the Web Server asynchronously within a single Event Loop.
 
----
-
-## 📂 Proje Yapısı
-
-```
+📂 Project Structure
 discord-bot/
-├── main.py              # Entry Point (Bot + Web Server entegrasyonu)
-├── database.py          # Asenkron Veritabanı Katmanı (DAL)
-├── cogs/                # Modüler Bot Parçaları
-│   ├── ekonomi.py       # Ekonomi Komutları
-│   ├── oyun.py          # Oyun Mekanikleri
-│   ├── sosyal.py        # Sosyal Etkileşimler
-│   ├── stats.py         # İstatistik & Level
-│   └── yonetim.py       # Moderasyon
-├── dashboard/           # Web Uygulaması (Quart)
-│   ├── app.py           # Web Server Logic
-│   ├── templates/       # HTML Dosyaları
-│   └── static/          # CSS & Assets
-└── requirements.txt     # Bağımlılıklar
-```
-
----
-
-**Geliştiriciler:** Elif, Nisa, Şeyma
-**Lisans:** MIT
+├── main.py              # Entry Point (Bot + Web Server integration)
+├── database.py          # Asynchronous Data Access Layer (DAL)
+├── cogs/                # Modular Command Categories (Economy, Stats, etc.)
+├── dashboard/           # Quart Web Server & Frontend Files
+├── logs/                # System and Error Logs
+└── tests/               # Unit and Integration Tests
