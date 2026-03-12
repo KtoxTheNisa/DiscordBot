@@ -1,78 +1,111 @@
 # 🤖 Discord Bot & Web Dashboard PRO
 
-> **Advanced Programming Course Term Project**
->
-> This project is a comprehensive Discord bot with multi-server support and a web dashboard, developed using modern asynchronous programming techniques.
+> **Advanced Programming Course – Term Project**
 
-## 🚀 Tech Stack
-
-The project is built with industry-standard technologies and a **100% Asynchronous** architecture.
-
-### Backend & Bot
-* **Python 3.10+**: Core development language.
-* **Quart Framework**: An **Asynchronous (Async)** version of Flask used for the web dashboard. This ensures the bot stays responsive while the website handles high concurrency.
-* **Discord.py (2.0+)**: Modern library for interacting with the Discord API.
-* **AsyncIO**: For concurrent process management.
-
-### Database
-* **SQLite3**: Data storage.
-* **Aiosqlite**: Asynchronous driver used to prevent database queries from blocking the bot (non-blocking).
-
-### Frontend (Dashboard)
-* **HTML5 & CSS3**: Modern, responsive design.
-* **Glassmorphism UI**: A premium interface design with modern effects (backdrop-filter).
-* **Jinja2**: HTML Template Engine.
+This project is a comprehensive Discord bot that supports **multiple servers** and includes a **web-based management dashboard**.  
+It is built using modern **asynchronous programming techniques** to ensure high performance, scalability, and responsiveness.
 
 ---
 
-## 🔥 Key Features
+# 🚀 Tech Stack
 
-### 1. Economy System
-* **Global Economy**: Coin earning through daily rewards and chatting.
-* **Stock Market**: A system where stock prices change every 5 minutes with randomized algorithms.
-* **Marketplace**: Users can buy/sell items and manage their inventory.
+The project is developed using **industry-standard technologies** and a **100% asynchronous architecture**.
 
-### 2. Management & Moderation
-* **Advanced Log System**: All actions (deleted messages, joining/leaving) are logged to specific channels.
-* **Authority Control**: Server-specific settings (auto-role, welcome messages).
+## Backend & Bot
+- **Python 3.10+** – Main programming language used for development.
+- **Quart Framework** – An asynchronous version of Flask used for the web dashboard. This ensures the website remains responsive while the bot processes Discord events.
+- **Discord.py (2.0+)** – A modern library used to communicate with the Discord API.
+- **AsyncIO** – Used for concurrent task management.
 
-### 3. Statistics & Leveling
-* **Voice/Chat Levels**: Earn XP and level up based on activity.
-* **Profile Cards**: Advanced dynamic profile cards (`!profile`).
-* **Leaderboards**: Weekly and overall rankings for voice and text activity (`!stat`, `!top_voice`).
+## Database
+- **SQLite3** – Used for data storage.
+- **aiosqlite** – Asynchronous SQLite driver that prevents database queries from blocking the bot.
 
-### 4. Entertainment & Social
-* **Marriage System**: Roleplay marriage features (`!marry`, `!divorce`).
-* **Reputation**: Rep points system (`!rep`).
-* **Games**: Word games, duels, coinflip, and more.
+## Frontend (Dashboard)
+- **HTML5 & CSS3** – Used to build a modern and responsive interface.
+- **Glassmorphism UI** – A modern UI design style with blurred backgrounds and transparent components.
+- **Jinja2** – Template engine for dynamic HTML rendering.
 
 ---
 
-## 🛠️ Setup
+# 🔥 Features
 
-### 1. Requirements
+## 1. Web Management Dashboard
+- **Discord Login (OAuth2)**
+- **Server-specific configuration** (command prefix, log channel, etc.)
+- **Live leaderboards** for XP, messages, and voice activity
+- Modern **Glassmorphism interface design**
+
+## 2. Advanced Global Economy System
+- `!buy_coin`, `!sell_coin` – Dynamic virtual trading system
+- `!daily` – Daily reward system
+- `!steal` – Risk-based stealing mechanic
+- `!market` – Marketplace for buying badges and items
+
+## 3. Level & Statistics System
+- Users gain **XP from messages and voice activity**
+- Advanced **profile card** (`!profile`)
+- **Weekly and global rankings** (`!stat`, `!top_voice`)
+
+## 4. Fun & Social Systems
+- **Marriage system** (`!marry`, `!divorce`)
+- **Reputation points** (`!rep`)
+- Mini games such as **Word Game, Duel, and Coin Flip**
+
+---
+
+# 🛠️ Installation
+
+## 1. Install Dependencies
+
 ```bash
 pip install -r requirements.txt
-2. Environment Variables (.env)
-Create a .env file in the root directory:
+```
 
-Kod snippet'i
-TOKEN=YOUR_DISCORD_BOT_TOKEN
-OWNER_ID=YOUR_USER_ID
+## 2. Environment Variables (.env)
+
+Create a `.env` file in the root directory of the project:
+
+```env
+TOKEN=DISCORD_BOT_TOKEN
+OWNER_ID=YOUR_ID
 CLIENT_SECRET=OAUTH2_SECRET
 CLIENT_ID=BOT_ID
 REDIRECT_URI=http://localhost:5000/callback
 SECRET_KEY=random_security_key
-3. Launch
-Bash
-python main.py
-This command starts both the Bot and the Web Server asynchronously within a single Event Loop.
+```
 
-📂 Project Structure
+## 3. Run the Project
+
+```bash
+python main.py
+```
+
+This command starts **both the Discord bot and the web dashboard asynchronously in the same event loop**.
+
+---
+
+# 📂 Project Structure
+
+```
 discord-bot/
-├── main.py              # Entry Point (Bot + Web Server integration)
-├── database.py          # Asynchronous Data Access Layer (DAL)
-├── cogs/                # Modular Command Categories (Economy, Stats, etc.)
-├── dashboard/           # Quart Web Server & Frontend Files
-├── logs/                # System and Error Logs
-└── tests/               # Unit and Integration Tests
+│
+├── main.py              # Entry point (Bot + Web Server integration)
+├── database.py          # Asynchronous Database Layer
+│
+├── cogs/                # Modular Bot Components
+│   ├── ekonomi.py       # Economy Commands
+│   ├── oyun.py          # Game Mechanics
+│   ├── sosyal.py        # Social Interactions
+│   ├── stats.py         # Statistics & Level System
+│   └── yonetim.py       # Moderation Tools
+│
+├── dashboard/           # Web Application (Quart)
+│   ├── app.py           # Web Server Logic
+│   ├── templates/       # HTML Templates
+│   └── static/          # CSS & Assets
+│
+└── requirements.txt     # Project Dependencies
+```
+
+---
